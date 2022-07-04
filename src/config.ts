@@ -1,0 +1,1 @@
+export const DEFAULT_ROUNDS = 3;

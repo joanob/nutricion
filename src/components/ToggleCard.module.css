@@ -1,0 +1,19 @@
+.cell {
+    margin: 12px 20px;
+    padding: 8px 0;
+    position: relative;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cell.active {
+    border: black 2px solid;
+}
+

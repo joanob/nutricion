@@ -1,45 +1,37 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, {useContext} from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Context from "./context"
+import Welcome from './pages/Welcome'
+import Game from "./pages/Game"
+import saveScore from './services/scoreService'
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+const App = () => {
+
+    const {state, dispatch} = useContext(Context)
+
+    if (state.rounds === 0 && state.maxScore > 0) {
+        // Save score
+        const scorePercent = Math.round(state.score/state.maxScore*100);
+        saveScore(state.name, scorePercent)
+        // Print score
+        alert(state.name + " ha conseguido " + scorePercent + "% de los puntos")
+        // TODO: print modal 
+        return <div>Modal</div>
+        // Reset state when modal is closed
+        // dispatch(reset())
+      }
+
+    // Print welcome page if name is not set
+    if (state.name == "" || state.rounds === 0) {
+        return <Welcome />
+    }
+
+    if (state.name !== "" && state.rounds > 0) {
+        // Primera página del juego
+        return <Game />
+    }
+
+    return <div></div>
 }
 
 export default App

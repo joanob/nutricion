@@ -10,6 +10,12 @@ export interface IState {
     usedFood: IFood[];
     food: IFood;
     selected: IFood["list"]
+    lastScoreListEntry?: {
+        name: string
+        scorePercent: number 
+        // date in miliseconds
+        date: number
+    }
 }
 
 const getDefaultRounds = () => {

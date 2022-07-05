@@ -13,10 +13,6 @@
     padding: 5px;
 }
 
-.cell.active {
-    border: black 2px solid;
-}
-
 .cell > div {
     visibility: hidden;
     position: absolute;

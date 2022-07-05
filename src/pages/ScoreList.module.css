@@ -1,0 +1,25 @@
+.main {
+    flex-grow: 1;
+    margin: 20px;
+}
+
+.header {
+    margin: 10px 0;
+    font-size: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header > div {
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.scorelist {
+    /* TODO: buscar table designs */
+}
+
+.last {
+    background-color: aquamarine;
+}

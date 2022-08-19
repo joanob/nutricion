@@ -20,4 +20,5 @@
 .form input {
     display: block;
     margin: 10px;
+    user-select: all;
 }

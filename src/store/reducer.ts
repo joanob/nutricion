@@ -1,10 +1,11 @@
-import { IFood } from "../services/dataset"
+import { Food } from "../services/dataset"
 import { getRandomFood } from "../services/foodService"
-import { TAction } from "./actions"
-import initialState, {IState} from "./initialState"
+import { Vitamins } from "../services/nutrients"
+import { Action } from "./actions"
+import initialState, {State} from "./initialState"
 import * as types from "./types"
 
-const reducer = (state: IState, action: TAction): IState => {
+const reducer = (state: State, action: Action): State => {
     const {type} = action 
 
     switch (type) {
@@ -16,16 +17,38 @@ const reducer = (state: IState, action: TAction): IState => {
             const macro = state.selected.macro ? [...state.selected.macro] : []
             macro.push(action.payload)
             return {...state, selected: {...state.selected, macro: macro}}
-        case types.ADD_MICRO:
-            const micro = state.selected.micro ? [...state.selected.micro] : []
-            micro.push(action.payload)
-            return {...state, selected: {...state.selected, micro: micro}}
+        case types.EMPTY_MACRO:
+            return {...state, selected: {...state.selected, macro: []}}
+        case types.TOGGLE_VITAMIN:
+            const vitamins = state.selected.vitamins
+            if (vitamins === undefined) {
+                return {...state, selected: {...state.selected, vitamins: [action.payload]}}
+            }
+            let index = vitamins.indexOf(action.payload)
+            if (index === -1) {
+                vitamins.push(action.payload)
+            } else {
+                delete vitamins[index]
+            }
+            return {...state, selected: {...state.selected, vitamins}}
+        case types.TOGGLE_MINERAL:
+            const minerals = state.selected.minerals
+            if (minerals === undefined) {
+                return {...state, selected: {...state.selected, minerals: [action.payload]}}
+            }
+            index = minerals.indexOf(action.payload)
+            if (index === -1) {
+                minerals.push(action.payload)
+            } else {
+                delete minerals[index]
+            }
+            return {...state, selected: {...state.selected, minerals}}
         case types.SET_WATER:
             return {...state, selected: {...state.selected, agua: action.payload}}
+        case types.EMPTY_WATER:
+            return {...state, selected: {...state.selected, agua: undefined}}
         case types.TOGGLE_FIBER:
             return {...state, selected: {...state.selected, fibra: state.selected.fibra ? false : true}}
-        case types.EMPTY_SELECTED:
-            return {...state, selected: {...state.selected, macro: [], micro: []}}
         case types.ROUND_END:
             const [roundScore, maxRoundScore] = getRoundScore(state.food, state.selected)
             const usedFood = [...state.usedFood]
@@ -41,7 +64,7 @@ const reducer = (state: IState, action: TAction): IState => {
 
 export default reducer
 
-const getRoundScore = (food: IFood, selected: IState["selected"]): [number, number] => {
+const getRoundScore = (food: Food, selected: State["selected"]): [number, number] => {
     // Macro score
     const [macroScore, macroMaxScore] = getGroupScore(selected.macro ? selected.macro : [], food.list.macro ? food.list.macro : [])
     // Micro score
@@ -80,8 +103,8 @@ const getGroupScore = (selected: number[], expected: number[]): [number, number]
     return [score, expected.length * 2]
 }
 
-const getNewFood = (usedFood: IFood[]): IFood => {
-    let newFood: IFood
+const getNewFood = (usedFood: Food[]): Food => {
+    let newFood: Food
     do {
         newFood = getRandomFood()
     } while (usedFood.indexOf(newFood) !== -1);

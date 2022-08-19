@@ -1,88 +1,104 @@
-import { IFood } from '../services/dataset';
-import {Nutrient,  Agua } from '../services/nutrients';
-import { IState } from './initialState';
+import {Macro, Micro,  Agua, Vitamins, Minerals } from '../services/nutrients';
 import * as types from './types'
 
-interface ISetName {
+interface SetName {
     type: types.SET_NAME;
     payload: string
 }
 
-export const setNameStore = (payload: string): ISetName => ({
+export const setName = (payload: string): SetName => ({
     type: types.SET_NAME,
     payload
 })
 
-interface ISetRounds {
+interface SetRounds {
     type: types.SET_ROUNDS;
     payload: number;
 }
 
-export const setRoundsStore = (payload: number): ISetRounds => ({
+export const setRounds = (payload: number): SetRounds => ({
     type: types.SET_ROUNDS,
     payload
 })
 
-interface IAddMacro {
+interface AddMacro {
     type: types.ADD_MACRO,
-    payload: number
+    payload: Macro
 }
 
-export const addMacro = (payload: number): IAddMacro => ({
+export const addMacro = (payload: Macro): AddMacro => ({
     type: types.ADD_MACRO,
     payload
 })
 
-interface IAddMicro {
-    type: types.ADD_MICRO,
-    payload: number
+interface EmptyMacro {
+    type: types.EMPTY_MACRO
 }
 
-export const addMicro = (payload: number): IAddMicro => ({
-    type: types.ADD_MICRO,
+export const emptyMacro = (): EmptyMacro => ({
+    type: types.EMPTY_MACRO
+})
+
+interface ToggleVitamin {
+    type: types.TOGGLE_VITAMIN
+    payload: Vitamins
+}
+
+export const toggleVitamin = (payload: Vitamins): ToggleVitamin => ({
+    type: types.TOGGLE_VITAMIN,
     payload
 })
 
-interface ISetWater {
+interface ToggleMineral {
+    type: types.TOGGLE_MINERAL
+    payload: Minerals
+}
+
+export const toggleMineral = (payload: Minerals): ToggleMineral => ({
+    type: types.TOGGLE_MINERAL,
+    payload
+})
+
+interface SetWater {
     type: types.SET_WATER,
     payload: Agua
 }
 
-export const setWater = (payload: Agua): ISetWater => ({
+export const setWater = (payload: Agua): SetWater => ({
     type: types.SET_WATER,
     payload
 })
 
-interface IToggleFiber {
+interface EmptyWater {
+    type: types.EMPTY_WATER
+}
+
+export const emptyWater = (): EmptyWater => ({
+    type: types.EMPTY_WATER
+})
+
+interface ToggleFiber {
     type: types.TOGGLE_FIBER
 }
 
-export const toggleFiber = (): IToggleFiber => ({
+export const toggleFiber = (): ToggleFiber => ({
     type: types.TOGGLE_FIBER
 })
 
-interface IEmptySelected {
-    type: types.EMPTY_SELECTED
-}
-
-export const emptySelected = (): IEmptySelected => ({
-    type: types.EMPTY_SELECTED
-})
-
-interface IRoundEnd {
+interface RoundEnd {
     type: types.ROUND_END;
 }
 
-export const roundEnd = (): IRoundEnd => ({
+export const roundEnd = (): RoundEnd => ({
     type: types.ROUND_END
 })
 
-interface IReset {
+interface Reset {
     type: types.RESET;
 }
 
-export const reset = (): IReset => ({
+export const reset = (): Reset => ({
     type: types.RESET
 })
 
-export type TAction = ISetName | ISetRounds | IAddMacro | IAddMicro | ISetWater | IToggleFiber | IEmptySelected | IRoundEnd | IReset
+export type Action = SetName | SetRounds | AddMacro | EmptyMacro | ToggleVitamin | ToggleMineral | SetWater | EmptyWater | ToggleFiber | RoundEnd | Reset

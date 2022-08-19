@@ -1,15 +1,15 @@
 import { DEFAULT_ROUNDS } from "../config";
-import { IFood } from "../services/dataset";
+import { Food } from "../services/dataset";
 import { getRandomFood } from "../services/foodService";
 
-export interface IState {
+export interface State {
     name: string;
     rounds: number;
     score: number;
     maxScore: number;
-    usedFood: IFood[];
-    food: IFood;
-    selected: IFood["list"]
+    usedFood: Food[];
+    food: Food;
+    selected: Food["list"]
     lastScoreListEntry?: {
         name: string
         scorePercent: number 
@@ -27,7 +27,7 @@ const getDefaultRounds = () => {
     }
 }
 
-const initialState: IState = {
+const initialState: State = {
     name: '',
     rounds: getDefaultRounds(),
     score: 0,

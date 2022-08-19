@@ -1,18 +1,20 @@
-import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, VITAMINAS, SALES, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, Agua} from "./nutrients"
+import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, VITAMINAS, SALES, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, Agua, Minerals, Vitamins, Macro, Micro} from "./nutrients"
 
-export interface IFood {
+export interface Food {
     name: string;
     list: {
-        macro?: number[],
-        micro?: number[],
-        other?: number[],
+        macro?: Macro[],
+        micro?: Micro[],
         agua?: Agua,
-        fibra?: boolean
+        fibra?: boolean,
+        minerals?: Minerals[],
+        vitamins?: Vitamins[]
+
     };
     info: string;
 }
 
-const dataset: IFood[] =  [
+const dataset: Food[] =  [
     { 
         name: "Pan", 
         list: {

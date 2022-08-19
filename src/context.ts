@@ -1,9 +1,9 @@
 import { createContext, Dispatch } from "react";
-import {IState, TAction, initialState} from "./store"
+import {State, Action, initialState} from "./store"
 
 interface IContextProps {
-    state: IState;
-    dispatch: Dispatch<TAction>;
+    state: State;
+    dispatch: Dispatch<Action>;
 }
 
 const Context = createContext<IContextProps>({

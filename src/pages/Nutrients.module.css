@@ -2,7 +2,7 @@
     flex-grow: 1;
     margin: 0 10px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
     grid-template-rows: 9fr 2fr;
     justify-content: space-between;
 }
@@ -117,5 +117,9 @@
 }
 
 .sm {
-    background: lightcoral;
+    background: rgb(240, 89, 89);
+}
+
+.sm_unactive {
+    background: rgb(197, 141, 141);
 }

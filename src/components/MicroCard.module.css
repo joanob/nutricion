@@ -1,0 +1,13 @@
+.cell {
+    padding: 2px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    margin: 5px;
+}
+
+.cell.active {
+    border: black 1px solid;
+}

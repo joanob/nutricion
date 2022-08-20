@@ -1,8 +1,19 @@
-import React from "react";
+import React, { Children } from "react";
 
-// Micro layout will have a title and eight toggle components. it renders title and toggle components as children
-const MicroLayout = () => {
-  return <article>{""}</article>;
+import styles from "./MicroLayout.module.css";
+
+interface Props {
+  header: string;
+  children: React.ReactNode;
+}
+
+const MicroLayout = ({ header, children }: Props) => {
+  return (
+    <article className={styles.article}>
+      <header>{header}</header>
+      <div>{children}</div>
+    </article>
+  );
 };
 
 export default MicroLayout;

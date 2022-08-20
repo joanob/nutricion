@@ -1,6 +1,6 @@
 import { Food } from "../services/dataset"
 import { getRandomFood } from "../services/foodService"
-import { Vitamins } from "../services/nutrients"
+import { Minerals, Vitamins } from "../services/nutrients"
 import { Action } from "./actions"
 import initialState, {State} from "./initialState"
 import * as types from "./types"
@@ -20,27 +20,27 @@ const reducer = (state: State, action: Action): State => {
         case types.EMPTY_MACRO:
             return {...state, selected: {...state.selected, macro: []}}
         case types.TOGGLE_VITAMIN:
-            const vitamins = state.selected.vitamins
-            if (vitamins === undefined) {
+            if (state.selected.vitamins === undefined) {
                 return {...state, selected: {...state.selected, vitamins: [action.payload]}}
             }
-            let index = vitamins.indexOf(action.payload)
-            if (index === -1) {
+            const vitamins: Vitamins[] = JSON.parse(JSON.stringify(state.selected.vitamins))
+            const vitIndex = vitamins.indexOf(action.payload)
+            if (vitIndex === -1) {
                 vitamins.push(action.payload)
             } else {
-                delete vitamins[index]
+                delete vitamins[vitIndex]
             }
             return {...state, selected: {...state.selected, vitamins}}
         case types.TOGGLE_MINERAL:
-            const minerals = state.selected.minerals
-            if (minerals === undefined) {
+            if (state.selected.minerals === undefined) {
                 return {...state, selected: {...state.selected, minerals: [action.payload]}}
             }
-            index = minerals.indexOf(action.payload)
-            if (index === -1) {
+            const minerals: Minerals[] = JSON.parse(JSON.stringify(state.selected.minerals))
+            const minIndex = minerals.indexOf(action.payload)
+            if (minIndex === -1) {
                 minerals.push(action.payload)
             } else {
-                delete minerals[index]
+                delete minerals[minIndex]
             }
             return {...state, selected: {...state.selected, minerals}}
         case types.SET_WATER:

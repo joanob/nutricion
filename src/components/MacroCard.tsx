@@ -5,13 +5,13 @@ import Context from "../context";
 import { addMacro } from "../store";
 import { Macro } from "../services/nutrients";
 
-interface IProps {
+interface Props {
   nutrient: string;
   nutrientStyle: string;
   nutrientValue: Macro;
 }
 
-const MacroCard = (props: IProps) => {
+const MacroCard = (props: Props) => {
   const { state, dispatch } = useContext(Context);
 
   const position = state.selected.macro?.indexOf(props.nutrientValue);

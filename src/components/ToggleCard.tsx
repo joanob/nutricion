@@ -5,14 +5,14 @@ import classnames from "classnames";
 import style from "./ToggleCard.module.css";
 import { emptyWater, setWater, toggleFiber } from "../store/actions";
 
-interface IProps {
+interface Props {
   text: string;
   nutrientStyle: string;
   unactiveStyle: string;
   nutrientValue: Agua | "fibra";
 }
 
-const ToggleCard = (props: IProps) => {
+const ToggleCard = (props: Props) => {
   const { state, dispatch } = useContext(Context);
 
   const handleClick = () => {

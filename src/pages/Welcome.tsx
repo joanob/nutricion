@@ -4,10 +4,11 @@ import { Footer, Header } from "../layouts";
 import { setName as setNameStore, setRounds as setRoundsStore } from "../store";
 import style from "./Welcome.module.css";
 
-/**
- * Welcome page allows user to select user name and read score list
- */
-const Welcome = (props: { showScorelist: () => void }) => {
+interface Props {
+  showScorelist: () => void;
+}
+
+const Welcome = (props: Props) => {
   const { state, dispatch } = useContext(Context);
 
   const [name, setName] = useState(state.name);

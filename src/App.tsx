@@ -28,7 +28,8 @@ const App = () => {
     return (
       <ScoreList
         close={() => {
-          setShowScorelist(false);
+          // TODO: fix to reset store
+          window.location.reload();
         }}
       />
     );

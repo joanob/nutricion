@@ -7,13 +7,11 @@ export interface Food {
         vitamins: Vitamins[]
         minerals: Minerals[],
         agua: Agua,
-        fibra?: boolean,
+        fibra: boolean,
 
     };
     info: string;
 }
-
-// TODO: revisar tot. Al fer obligatori la fibra esta mal i el merge ha sigut conflictiu
 
 const dataset: Food[] =  [
     { 
@@ -22,8 +20,8 @@ const dataset: Food[] =  [
             macro: [GLUC_COMP, PROTEINA],
             vitamins: [],
             minerals: [],
-            agua: AGUA_MEDIO,
-            fibra: false // TODO
+            agua: AGUA_BAJO,
+            fibra: false
         }, 
         
 
@@ -35,7 +33,7 @@ const dataset: Food[] =  [
             macro: [GLUC_COMP],
             vitamins: [],
             minerals: [],
-            agua: AGUA_MEDIO,
+            agua: AGUA_BAJO,
             fibra: true
         }, 
         info: "Estupendo para bocadillos." 
@@ -44,7 +42,7 @@ const dataset: Food[] =  [
         name: "Lechuga", 
         list: {
             macro: [],
-            vitamins: [],
+            vitamins: [VitK,C],
             minerals: [],
             agua: AGUA_ALTO, // TODO
             fibra: true // TODO
@@ -55,8 +53,8 @@ const dataset: Food[] =  [
         name: "Huevo", 
         list: {
             macro: [PROTEINA, LIPIDOS],
-            vitamins: [A,D], // I alguna vitamina B
-            minerals: [I,P,SE],
+            vitamins: [A,D,B1,B12], // I alguna vitamina B
+            minerals: [CA,FE,I,MG,P,SE],
             agua: AGUA_ALTO,
             fibra: false // TODO
         }, 
@@ -66,8 +64,8 @@ const dataset: Food[] =  [
         name: "Nueces", 
         list: {
             macro: [PROTEINA, LIPIDOS],
-            vitamins: [],
-            minerals: [CA],
+            vitamins: [B9,B1,],
+            minerals: [FE, MG, ZN, K, P, SE],
             agua: AGUA_BAJO,
             fibra: true
         }, 

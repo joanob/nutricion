@@ -1,6 +1,6 @@
-import dataset, { IFood } from "./dataset"
+import dataset, { Food } from "./dataset"
 
-export const getRandomFood = (): IFood => {
+export const getRandomFood = (): Food => {
     const random = Math.floor(Math.random() * dataset.length)
     return dataset[random]
 }

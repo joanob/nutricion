@@ -3,7 +3,7 @@ import Context from "../context";
 import { Agua } from "../services/nutrients";
 import classnames from "classnames";
 import style from "./ToggleCard.module.css";
-import { emptyWater, setWater, toggleFiber } from "../store/actions";
+import { setWater, toggleFiber } from "../store/actions";
 
 interface Props {
   text: string;
@@ -19,11 +19,7 @@ const ToggleCard = (props: Props) => {
     if (props.nutrientValue === "fibra") {
       dispatch(toggleFiber());
     } else {
-      if (state.selected.agua === props.nutrientValue) {
-        dispatch(emptyWater());
-      } else {
-        dispatch(setWater(props.nutrientValue));
-      }
+      dispatch(setWater(props.nutrientValue));
     }
   };
 

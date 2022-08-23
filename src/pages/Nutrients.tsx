@@ -206,19 +206,19 @@ const Nutrients = () => {
           <h2>Agua</h2>
           <section className={style.water}>
             <ToggleCard
-              text="< 30%"
+              text="< 40%"
               nutrientStyle={style.ag}
               unactiveStyle={style.ag_unactive}
               nutrientValue={AGUA_BAJO}
             />
             <ToggleCard
-              text="30% - 60%"
+              text="40% - 75%"
               nutrientStyle={style.ag}
               unactiveStyle={style.ag_unactive}
               nutrientValue={AGUA_MEDIO}
             />
             <ToggleCard
-              text="> 60%"
+              text="> 75%"
               nutrientStyle={style.ag}
               unactiveStyle={style.ag_unactive}
               nutrientValue={AGUA_ALTO}

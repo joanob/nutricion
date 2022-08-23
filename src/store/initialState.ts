@@ -40,7 +40,7 @@ const initialState: State = {
         vitamins: [],
         minerals: [],
         agua: AGUA_MEDIO,
-        fibra: true
+        fibra: false
     }
 }
 

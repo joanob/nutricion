@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import classnames from "classnames";
 import style from "./MacroCard.module.css";
 import Context from "../context";
-import { addMacro } from "../store";
+import { addMacro } from "../customStore";
 import { Macro } from "../services/nutrients";
 
 interface Props {

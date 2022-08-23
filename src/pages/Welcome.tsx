@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
 import Context from "../context";
 import { Footer, Header } from "../layouts";
-import { setName as setNameStore, setRounds as setRoundsStore } from "../store";
+import {
+  setName as setNameStore,
+  setRounds as setRoundsStore,
+} from "../customStore";
 import style from "./Welcome.module.css";
 
 interface Props {

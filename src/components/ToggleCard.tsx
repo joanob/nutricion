@@ -3,7 +3,7 @@ import Context from "../context";
 import { Agua } from "../services/nutrients";
 import classnames from "classnames";
 import style from "./ToggleCard.module.css";
-import { setWater, toggleFiber } from "../store/actions";
+import { setWater, toggleFiber } from "../customStore/actions";
 
 interface Props {
   text: string;

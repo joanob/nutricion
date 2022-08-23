@@ -3,7 +3,7 @@ import Context from "../context";
 import { Minerals, Vitamins } from "../services/nutrients";
 import classnames from "classnames";
 import styles from "./MicroCard.module.css";
-import { toggleMineral, toggleVitamin } from "../store/actions";
+import { toggleMineral, toggleVitamin } from "../customStore/actions";
 
 interface Props {
   children: React.ReactNode;

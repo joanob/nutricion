@@ -28,7 +28,7 @@ import {
   ZN,
   SE,
 } from "../services/nutrients";
-import { emptyMacro, roundEnd } from "../store";
+import { emptyMacro, roundEnd } from "../customStore";
 import ToggleCard from "../components/ToggleCard";
 import MicroLayout from "../layouts/MicroLayout";
 import MicroCard from "../components/MicroCard";

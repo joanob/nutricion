@@ -1,11 +1,10 @@
-import React, { useState, useContext } from "react";
-
-import Context from "./context";
-import Welcome from "./pages/Welcome";
-import ScoreList from "./pages/ScoreList";
-import Nutrients from "./pages/Nutrients";
+import React from "react";
 
 const App = () => {
+  return <div>App</div>;
+};
+
+/* const App = () => {
   const [showScorelist, setShowScorelist] = useState(false);
 
   const { state, dispatch } = useContext(Context);
@@ -21,10 +20,7 @@ const App = () => {
   }
 
   if (state.rounds === 0 && state.maxScore > 0) {
-    /**
-     * Score list prints score list remarking last entry
-     * Reset store when closing
-     */
+    
     return (
       <ScoreList
         close={() => {
@@ -51,6 +47,6 @@ const App = () => {
   }
 
   return <div></div>;
-};
+}; */
 
 export default App;

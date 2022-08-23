@@ -1,10 +1,9 @@
-import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, VITAMINAS, SALES, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, Agua, Minerals, Vitamins, Macro, Micro} from "./nutrients"
+import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, Macro, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, Agua, CA, P, K, MG, FE, I, ZN, SE, Minerals, B1, B9, B12, C, A, D, E, VitK, Vitamins } from "./nutrients"
 
 export interface Food {
     name: string;
     list: {
         macro?: Macro[],
-        micro?: Micro[],
         agua?: Agua,
         fibra?: boolean,
         minerals?: Minerals[],
@@ -18,14 +17,18 @@ const dataset: Food[] =  [
     { 
         name: "Pan", 
         list: {
-            macro: [GLUC_COMP]
+            macro: [GLUC_COMP],
+            agua: AGUA_BAJO
         }, 
+        
+
         info: "Riquísimo con aceite y pimentón." 
     },
     { 
         name: "Pan integral", 
         list: {
             macro: [GLUC_COMP],
+            agua: AGUA_BAJO,
             fibra: true
         }, 
         info: "Estupendo para bocadillos." 
@@ -33,7 +36,6 @@ const dataset: Food[] =  [
     { 
         name: "Lechuga", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         },
@@ -43,7 +45,8 @@ const dataset: Food[] =  [
         name: "Huevo", 
         list: {
             macro: [PROTEINA, LIPIDOS],
-            micro: [VITAMINAS]
+            vitamins: [A,D], // I alguna vitamina B
+            minerals: [I,P,SE]
         }, 
         info: "Un alimento muy completo." 
     },
@@ -59,7 +62,6 @@ const dataset: Food[] =  [
         name: "Fresas", 
         list: {
             macro: [GLUC_SIMP],
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         },
@@ -76,8 +78,7 @@ const dataset: Food[] =  [
         name: "Zumo de naranja", 
         list: {
             macro: [GLUC_SIMP],
-            micro: [VITAMINAS],
-            agua: AGUA_MEDIO
+            agua: AGUA_ALTO
         }, 
         info: "Una pieza entera de fruta es mejor." 
     },
@@ -85,8 +86,7 @@ const dataset: Food[] =  [
         name: "Manzana", 
         list: {
             macro: [GLUC_SIMP],
-            micro: [VITAMINAS, SALES],
-            agua: AGUA_MEDIO,
+            agua: AGUA_ALTO,
             fibra: true
         }, 
         info: "Deliciosamente crujiente. Los azúcares que contiene son de liberación lenta." 
@@ -124,7 +124,6 @@ const dataset: Food[] =  [
     { 
         name: "Judías verdes", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         }, 
@@ -134,7 +133,6 @@ const dataset: Food[] =  [
         name: "Aguacate", 
         list: {
             macro: [LIPIDOS],
-            micro: [VITAMINAS],
             fibra: true
         }, 
         info: "Muy rico en lípidos saludables." 
@@ -142,7 +140,6 @@ const dataset: Food[] =  [
     { 
         name: "Sandía", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         }, 
@@ -152,7 +149,6 @@ const dataset: Food[] =  [
         name: "Aceitunas", 
         list: {
             macro: [LIPIDOS],
-            micro: [VITAMINAS],
             fibra: true
         }, 
         info: "Los encurtidos son probióticoos." 
@@ -175,7 +171,6 @@ const dataset: Food[] =  [
         name: "Plátano", 
         list: {
             macro: [GLUC_COMP, GLUC_SIMP],
-            micro: [VITAMINAS, SALES],
             fibra: true
         }, 
         info: "Muy rico en potasio. Los azúcares que contiene son de liberación lenta." 
@@ -183,7 +178,6 @@ const dataset: Food[] =  [
     { 
         name: "Pimiento rojo", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         }, 
@@ -200,16 +194,14 @@ const dataset: Food[] =  [
     { 
         name: "Queso fresco", 
         list: {
-            macro: [PROTEINA, LIPIDOS],
-            micro: [VITAMINAS, SALES]
+            macro: [PROTEINA, LIPIDOS]
         }, 
         info: "Óptimo para tomar en bocadillos y ensaladas." 
     },
     { 
         name: "Queso curado", 
         list: {
-            macro: [LIPIDOS, PROTEINA],
-            micro: [VITAMINAS, SALES]
+            macro: [LIPIDOS, PROTEINA]
         }, 
         info: "Muy calórico." 
     },
@@ -223,7 +215,6 @@ const dataset: Food[] =  [
     { 
         name: "Alcachofas", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         }, 
@@ -239,7 +230,6 @@ const dataset: Food[] =  [
     { 
         name: "Espinacas", 
         list: {
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         }, 
@@ -263,7 +253,6 @@ const dataset: Food[] =  [
         name: "Melón", 
         list: {
             macro: [GLUC_SIMP],
-            micro: [VITAMINAS, SALES],
             agua: AGUA_MEDIO,
             fibra: true
         },

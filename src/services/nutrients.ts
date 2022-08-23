@@ -6,12 +6,6 @@ export const LIPIDOS = 4
 
 export type Macro = typeof PROTEINA | typeof GLUC_COMP | typeof GLUC_SIMP | typeof LIPIDOS
 
-// Micronutrients
-export const VITAMINAS = 5 
-export const SALES = 6
-
-export type Micro = typeof VITAMINAS | typeof SALES
-
 // Agua
 export const AGUA_BAJO = 7 
 export const AGUA_MEDIO = 8

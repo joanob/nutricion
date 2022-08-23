@@ -1,17 +1,6 @@
-import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, Macro, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, Agua, CA, P, K, MG, FE, I, ZN, SE, Minerals, B1, B9, B12, C, A, D, E, VitK, Vitamins } from "./nutrients"
+import {PROTEINA, GLUC_COMP, GLUC_SIMP, LIPIDOS, AGUA_BAJO, AGUA_MEDIO, AGUA_ALTO, CA, P, K, MG, FE, I, ZN, SE, B1, B9, B12, C, A, D, E, VitK, } from "../domain/Nutrients"
 
-export interface Food {
-    name: string;
-    list: {
-        macro: Macro[],
-        vitamins: Vitamins[]
-        minerals: Minerals[],
-        agua: Agua,
-        fibra: boolean,
-
-    };
-    info: string;
-}
+import { Food } from "../domain/Food";
 
 const dataset: Food[] =  [
     { 

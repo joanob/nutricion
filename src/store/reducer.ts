@@ -45,8 +45,6 @@ const reducer = (state: State, action: Action): State => {
             return {...state, selected: {...state.selected, minerals}}
         case types.SET_WATER:
             return {...state, selected: {...state.selected, agua: action.payload}}
-        case types.EMPTY_WATER:
-            return {...state, selected: {...state.selected, agua: undefined}}
         case types.TOGGLE_FIBER:
             return {...state, selected: {...state.selected, fibra: state.selected.fibra ? false : true}}
         case types.ROUND_END:
@@ -54,7 +52,7 @@ const reducer = (state: State, action: Action): State => {
             const usedFood = [...state.usedFood]
             usedFood.push(state.food)
             const newFood = getNewFood(usedFood)
-            return {...state, rounds: state.rounds - 1, score: state.score + roundScore, maxScore: state.maxScore + maxRoundScore, usedFood: usedFood, food: newFood, selected: {}}
+            return {...state, rounds: state.rounds - 1, score: state.score + roundScore, maxScore: state.maxScore + maxRoundScore, usedFood: usedFood, food: newFood, selected: initialState.selected}
         case types.RESET:
             return initialState
         default:
@@ -67,8 +65,6 @@ export default reducer
 const getRoundScore = (food: Food, selected: State["selected"]): [number, number] => {
     // Macro score
     const [macroScore, macroMaxScore] = getGroupScore(selected.macro ? selected.macro : [], food.list.macro ? food.list.macro : [])
-    // Micro score
-    const [microScore, microMaxScore] = getGroupScore(selected.micro ? selected.micro : [], food.list.micro ? food.list.micro : [])
     // Agua y fibra 
     let score = 0;
     let maxScore = 0;
@@ -84,7 +80,7 @@ const getRoundScore = (food: Food, selected: State["selected"]): [number, number
             score = score + 2
         }
     }
-    return [macroScore + microScore + score, macroMaxScore + microMaxScore + maxScore]
+    return [macroScore + score, macroMaxScore + maxScore]
 }
 
 /**

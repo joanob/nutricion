@@ -19,9 +19,6 @@ export type TOGGLE_MINERAL = typeof TOGGLE_MINERAL
 export const SET_WATER = 'SET_WATER'
 export type SET_WATER = typeof SET_WATER
 
-export const EMPTY_WATER = 'EMPTY_WATER'
-export type EMPTY_WATER = typeof EMPTY_WATER
-
 export const TOGGLE_FIBER = 'TOGGLE_FIBER'
 export type TOGGLE_FIBER = typeof TOGGLE_FIBER
 

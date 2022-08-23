@@ -1,6 +1,7 @@
 import { DEFAULT_ROUNDS } from "../config";
 import { Food } from "../services/dataset";
 import { getRandomFood } from "../services/foodService";
+import { AGUA_MEDIO } from "../services/nutrients";
 
 export interface State {
     name: string;
@@ -34,7 +35,13 @@ const initialState: State = {
     maxScore: 0,
     usedFood: [],
     food: getRandomFood(),
-    selected: {}
+    selected: {
+        macro: [],
+        vitamins: [],
+        minerals: [],
+        agua: AGUA_MEDIO,
+        fibra: true
+    }
 }
 
 export default initialState

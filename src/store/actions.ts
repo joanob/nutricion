@@ -1,4 +1,4 @@
-import {Macro, Micro,  Agua, Vitamins, Minerals } from '../services/nutrients';
+import {Macro, Agua, Vitamins, Minerals } from '../services/nutrients';
 import * as types from './types'
 
 interface SetName {
@@ -69,14 +69,6 @@ export const setWater = (payload: Agua): SetWater => ({
     payload
 })
 
-interface EmptyWater {
-    type: types.EMPTY_WATER
-}
-
-export const emptyWater = (): EmptyWater => ({
-    type: types.EMPTY_WATER
-})
-
 interface ToggleFiber {
     type: types.TOGGLE_FIBER
 }
@@ -101,4 +93,4 @@ export const reset = (): Reset => ({
     type: types.RESET
 })
 
-export type Action = SetName | SetRounds | AddMacro | EmptyMacro | ToggleVitamin | ToggleMineral | SetWater | EmptyWater | ToggleFiber | RoundEnd | Reset
+export type Action = SetName | SetRounds | AddMacro | EmptyMacro | ToggleVitamin | ToggleMineral | SetWater | ToggleFiber | RoundEnd | Reset

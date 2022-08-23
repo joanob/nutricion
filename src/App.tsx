@@ -1,7 +1,21 @@
 import React from "react";
+import { GameRoute, RoundResultsRoute, ScorelistRoute } from "./domain/Routes";
+import Landing from "./pages/Landing";
+import { useAppSelector } from "./store/hooks";
 
 const App = () => {
-  return <div>App</div>;
+  const route = useAppSelector((state) => state.route.route);
+
+  switch (route) {
+    case GameRoute:
+      return <div>Game</div>;
+    case ScorelistRoute:
+      return <div>Scorelist</div>;
+    case RoundResultsRoute:
+      return <div>Results</div>;
+    default:
+      return <Landing />;
+  }
 };
 
 /* const App = () => {

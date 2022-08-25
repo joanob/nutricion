@@ -1,40 +1,51 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
 interface GameState {
-  name: string 
-  rounds: number
-  score: number 
-  maxScore: number
+  name: string;
+  gameRounds: number;
+  roundsPlayed: number;
+  score: number;
+  maxScore: number;
 }
 
 // Define the initial state using that type
 const initialState: GameState = {
   name: "",
-  rounds: 0,
+  gameRounds: 0,
+  roundsPlayed: 0,
   score: 0,
-  maxScore: 0
-}
+  maxScore: 0,
+};
 
 export const gameSlice = createSlice({
-  name: 'game',
+  name: "game",
   initialState,
   reducers: {
     setName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload
+      state.name = action.payload;
     },
-    incRound: (state) => {
-        state.rounds = state.rounds + 1
+    setGameRounds: (state, action: PayloadAction<number>) => {
+      state.gameRounds = action.payload;
+    },
+    incRoundsPlayed: (state) => {
+      state.roundsPlayed = state.roundsPlayed + 1;
     },
     addScore: (state, action: PayloadAction<number>) => {
-        state.score = state.score + action.payload
+      state.score = state.score + action.payload;
     },
     addMaxScore: (state, action: PayloadAction<number>) => {
-        state.maxScore = state.maxScore + action.payload
-    }
+      state.maxScore = state.maxScore + action.payload;
+    },
   },
-})
+});
 
-export const { setName, incRound, addScore, addMaxScore } = gameSlice.actions
+export const {
+  setName,
+  setGameRounds,
+  incRoundsPlayed,
+  addScore,
+  addMaxScore,
+} = gameSlice.actions;
 
-export default gameSlice.reducer
+export default gameSlice.reducer;

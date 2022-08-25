@@ -1,1 +1,1 @@
-export const DEFAULT_ROUNDS = 3;
+export const DEFAULT_ROUNDS = 5;
